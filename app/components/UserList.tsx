@@ -28,15 +28,21 @@ const UserList: React.FC = () => {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  if (loading) return <p className="text-center text-blue-500">Loading...</p>;
+  if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <ul>
-      {users.map(user => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-2xl font-semibold mb-4 text-center">User List</h2>
+      <ul className="space-y-4">
+        {users.map(user => (
+          <li key={user.id} className="p-4 bg-gray-100 rounded-md shadow-sm flex justify-between items-center">
+            <span className="font-medium text-gray-700">{user.name}</span>
+            <span className="text-gray-500 text-sm">ID: {user.id}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

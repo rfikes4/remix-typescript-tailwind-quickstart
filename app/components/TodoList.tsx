@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import TodoItem from './TodoItem';
+import TodoInput from './TodoInput';
 
-type Todo = {
+export type Todo = {
   id: number;
   text: string;
   completed: boolean;
@@ -25,23 +27,17 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>To-Do List</h2>
-      <input type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)} placeholder="Add a new task" />
-      <button onClick={addTodo}>Add</button>
-      <ul>
+    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-2xl font-semibold mb-4 text-center">To-Do List</h2>
+      <TodoInput newTodo={newTodo} onChange={e => setNewTodo(e.target.value)} onAdd={addTodo} />
+      <ul className="space-y-2">
         {todos.map(todo => (
-          <li key={todo.id}>
-            <span
-              style={{
-                textDecoration: todo.completed ? 'line-through' : 'none',
-              }}
-            >
-              {todo.text}
-            </span>
-            <button onClick={() => toggleComplete(todo.id)}>{todo.completed ? 'Undo' : 'Complete'}</button>
-            <button onClick={() => removeTodo(todo.id)}>Remove</button>
-          </li>
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onToggleComplete={() => toggleComplete(todo.id)}
+            onRemove={() => removeTodo(todo.id)}
+          />
         ))}
       </ul>
     </div>

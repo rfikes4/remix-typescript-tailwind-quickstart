@@ -8,15 +8,14 @@ export const links = () => {
 
 export default function App() {
   return (
-    <html lang="en">
+    <>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="">
-        {/* <body className="bg-slate-900 text-slate-100"> */}
+      <body>
         <Navigation />
         <div className="p-4">
           <Outlet />
@@ -25,6 +24,6 @@ export default function App() {
         <Scripts />
         <LiveReload />
       </body>
-    </html>
+    </>
   );
 }

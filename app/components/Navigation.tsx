@@ -1,11 +1,11 @@
 import { Link } from '@remix-run/react';
 
-const anchorClass = 'transition opacity-75 hover:(opacity-100 text-emerald-500)';
+const anchorClass = 'transition-colors duration-200 hover:text-emerald-400';
 
 const Navigation = () => {
   return (
-    <nav className="p-4 bg-slate-800 text-slate-100">
-      <ul className="flex space-x-4">
+    <nav className="bg-slate-900 p-4 shadow-lg text-white">
+      <ul className="flex justify-center space-x-6">
         <li>
           <Link to="/" className={anchorClass}>
             Home
@@ -22,8 +22,8 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link to="/products" className={anchorClass}>
-            Product List
+          <Link to="/filterable" className={anchorClass}>
+            Filterable List
           </Link>
         </li>
         <li>
@@ -34,6 +34,11 @@ const Navigation = () => {
         <li>
           <Link to="/users" className={anchorClass}>
             User List
+          </Link>
+        </li>
+        <li>
+          <Link to="/lru" className={anchorClass}>
+            LRU Cache
           </Link>
         </li>
       </ul>

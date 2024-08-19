@@ -26,26 +26,46 @@ const ShoppingCart: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Products</h2>
-      {notification && <p style={{ color: 'green' }}>{notification}</p>}
-      <ul>
+    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-2xl font-semibold mb-4 text-center">Products</h2>
+      {notification && (
+        <div className="mb-4 p-2 bg-green-100 text-green-700 border border-green-400 rounded-md text-center">
+          {notification}
+        </div>
+      )}
+      <ul className="space-y-4 mb-6">
         {products.map(product => (
-          <li key={product.id}>
-            {product.name} - ${product.price}
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+          <li key={product.id} className="flex justify-between items-center p-4 bg-gray-100 rounded-md shadow-sm">
+            <span className="font-medium">{product.name}</span>
+            <span className="text-gray-500">${product.price}</span>
+            <button
+              onClick={() => addToCart(product)}
+              className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition-colors"
+            >
+              Add to Cart
+            </button>
           </li>
         ))}
       </ul>
-      <h2>Shopping Cart</h2>
-      <ul>
-        {cart.map(product => (
-          <li key={product.id}>
-            {product.name} - ${product.price}
-            <button onClick={() => removeFromCart(product.id)}>Remove</button>
-          </li>
-        ))}
-      </ul>
+      <h2 className="text-2xl font-semibold mb-4 text-center">Shopping Cart</h2>
+      {cart.length === 0 ? (
+        <p className="text-center text-gray-500">Your cart is empty</p>
+      ) : (
+        <ul className="space-y-4">
+          {cart.map(product => (
+            <li key={product.id} className="flex justify-between items-center p-4 bg-gray-100 rounded-md shadow-sm">
+              <span className="font-medium">{product.name}</span>
+              <span className="text-gray-500">${product.price}</span>
+              <button
+                onClick={() => removeFromCart(product.id)}
+                className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-colors"
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
