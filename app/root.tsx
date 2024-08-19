@@ -1,12 +1,9 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
-import type { MetaFunction } from 'remix';
-import install from '@twind/with-remix';
-import config from '../twind.config.js';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import styles from './styles/tailwind.css';
+import Navigation from '~/components/Navigation';
 
-install(config);
-
-export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' };
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
 };
 
 export default function App() {
@@ -18,8 +15,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body className="">
+        {/* <body className="bg-slate-900 text-slate-100"> */}
+        <Navigation />
+        <div className="p-4">
+          <Outlet />
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

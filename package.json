@@ -1,6 +1,7 @@
 {
   "name": "remix-typescript-tailwind-quickstart",
   "private": true,
+  "type": "module",
   "description": "Get started on Remix with TypeScript and Tailwind CSS in seconds.",
   "license": "Unlicense",
   "sideEffects": false,
@@ -9,26 +10,23 @@
     "dev": "cross-env NODE_ENV=development remix dev",
     "format": "prettier --write \"./app/**/*.{js,jsx,ts,tsx}\" \"./*.{js,ts}\"",
     "lint": "eslint \"app/**/*.{ts,tsx}\"",
-    "postinstall": "remix setup",
     "start": "cross-env NODE_ENV=production remix-serve build",
     "type-check": "tsc",
     "validate": "yarn lint && yarn type-check"
   },
   "dependencies": {
-    "@remix-run/react": "^1.2.3",
-    "@remix-run/serve": "^1.2.3",
-    "@twind/preset-autoprefix": "^1.0.0-next.37",
-    "@twind/preset-tailwind": "^1.0.0-next.37",
-    "@twind/with-remix": "^1.0.0-next.37",
+    "@remix-run/dev": "^2.11.2",
+    "@remix-run/react": "^2.11.2",
+    "@remix-run/serve": "^2.11.2",
+    "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "remix": "^1.2.3",
-    "twind": "^1.0.0-next.37"
+    "postcss": "^8.4.41",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remix": "^1.19.3",
+    "tailwindcss": "^3.4.10"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.2.3",
-    "@remix-run/eslint-config": "^1.2.3",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "eslint": "^8.9.0",
@@ -37,7 +35,7 @@
     "prettier": "^2.5.1",
     "stylelint": "^14.5.3",
     "stylelint-config-recommended": "^7.0.0",
-    "typescript": "^4.5.5"
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">=14"
